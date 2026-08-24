@@ -1,0 +1,51 @@
+store_id,store_name,city,total_revenue,store_rank
+3,"BlueMart Store 03","Abu Dhabi",1576.0700000000002,1
+49,"BlueMart Store 49","Abu Dhabi",1404.52,2
+46,"BlueMart Store 46","Abu Dhabi",1298.98,3
+18,"BlueMart Store 18","Abu Dhabi",835.2,4
+28,"BlueMart Store 28","Abu Dhabi",769.23,5
+10,"BlueMart Store 10","Abu Dhabi",573.2199999999999,6
+48,"BlueMart Store 48","Abu Dhabi",559.6800000000001,7
+29,"BlueMart Store 29","Abu Dhabi",553.08,8
+9,"BlueMart Store 09","Abu Dhabi",434.13000000000005,9
+26,"BlueMart Store 26","Abu Dhabi",359.96,10
+4,"BlueMart Store 04","Abu Dhabi",288.22,11
+21,"BlueMart Store 21","Abu Dhabi",233.64999999999998,12
+31,"BlueMart Store 31","Abu Dhabi",150.18,13
+39,"BlueMart Store 39","Abu Dhabi",64.95,14
+20,"BlueMart Store 20",Dubai,2454.96,1
+30,"BlueMart Store 30",Dubai,1982.6899999999998,2
+43,"BlueMart Store 43",Dubai,1411.47,3
+1,"BlueMart Store 01",Dubai,1393.83,4
+15,"BlueMart Store 15",Dubai,1346.09,5
+38,"BlueMart Store 38",Dubai,1319.75,6
+5,"BlueMart Store 05",Dubai,1177.18,7
+14,"BlueMart Store 14",Dubai,1154.1200000000001,8
+42,"BlueMart Store 42",Dubai,1089.98,9
+32,"BlueMart Store 32",Dubai,1055.6399999999999,10
+37,"BlueMart Store 37",Dubai,1023.75,11
+19,"BlueMart Store 19",Dubai,859.51,12
+23,"BlueMart Store 23",Dubai,664.4200000000001,13
+47,"BlueMart Store 47",Dubai,647.92,14
+22,"BlueMart Store 22",Dubai,597.7099999999999,15
+33,"BlueMart Store 33",Dubai,569.3000000000001,16
+45,"BlueMart Store 45",Dubai,491.78999999999996,17
+41,"BlueMart Store 41",Dubai,477.58000000000004,18
+25,"BlueMart Store 25",Dubai,468.59999999999997,19
+17,"BlueMart Store 17",Dubai,443.91999999999996,20
+7,"BlueMart Store 07",Dubai,420.47,21
+24,"BlueMart Store 24",Dubai,393.31,22
+40,"BlueMart Store 40",Dubai,375.24,23
+50,"BlueMart Store 50",Dubai,217.91000000000003,24
+11,"BlueMart Store 11",Dubai,201.22,25
+27,"BlueMart Store 27",Dubai,162.5,26
+6,"BlueMart Store 06",Dubai,142.87,27
+16,"BlueMart Store 16",Dubai,97.33000000000001,28
+13,"BlueMart Store 13",Sharjah,850.03,1
+36,"BlueMart Store 36",Sharjah,672.4,2
+2,"BlueMart Store 02",Sharjah,625.27,3
+44,"BlueMart Store 44",Sharjah,584.21,4
+12,"BlueMart Store 12",Sharjah,487.21999999999997,5
+34,"BlueMart Store 34",Sharjah,481.54999999999995,6
+8,"BlueMart Store 08",Sharjah,462.90999999999997,7
+35,"BlueMart Store 35",Sharjah,445.84000000000003,8
