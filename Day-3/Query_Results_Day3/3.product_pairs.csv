@@ -1,0 +1,21 @@
+sku_id_1,product_1,sku_id_2,product_2,times_bought_together
+1037,Electronics_Cables_1037,1153,Electronics_Batteries_1153,297
+1009,Electronics_Batteries_1009,1045,Electronics_Cables_1045,297
+1009,Electronics_Batteries_1009,1079,Beverages_Juices_1079,295
+1009,Electronics_Batteries_1009,1126,"Beverages_Soft Drinks_1126",295
+1037,Electronics_Cables_1037,1045,Electronics_Cables_1045,293
+1065,Electronics_Chargers_1065,1104,Grocery_Pasta_1104,291
+1034,"Household_Cleaning Supplies_1034",1104,Grocery_Pasta_1104,291
+1009,Electronics_Batteries_1009,1198,Dairy_Cheese_1198,291
+1035,Electronics_Batteries_1035,1081,Snacks_Nuts_1081,290
+1009,Electronics_Batteries_1009,1048,Snacks_Biscuits_1048,290
+1045,Electronics_Cables_1045,1074,"Personal Care_Skincare_1074",289
+1009,Electronics_Batteries_1009,1015,Dairy_Cream_1015,288
+1104,Grocery_Pasta_1104,1156,"Personal Care_Soap_1156",288
+1098,"Electronics_Mobile Accessories_1098",1193,Beverages_Tea_1193,288
+1115,"Household_Paper Products_1115",1199,Electronics_Cables_1199,287
+1027,Snacks_Chips_1027,1199,Electronics_Cables_1199,287
+1037,Electronics_Cables_1037,1064,Snacks_Biscuits_1064,287
+1009,Electronics_Batteries_1009,1081,Snacks_Nuts_1081,287
+1009,Electronics_Batteries_1009,1099,"Personal Care_Toothpaste_1099",286
+1099,"Personal Care_Toothpaste_1099",1105,Beverages_Water_1105,286
