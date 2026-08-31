@@ -1,0 +1,82 @@
+"""
+Step 5 - Model Comparison & Evaluation
+Loads both models, compares them side-by-side.
+"""
+import pandas as pd
+import pickle
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.metrics import (
+    accuracy_score, precision_score, recall_score, f1_score,
+    roc_auc_score, roc_curve,
+    confusion_matrix, ConfusionMatrixDisplay,
+)
+from config import DATA_CLEANED, OUTPUT_DIR, TARGET, RANDOM_STATE, TEST_SIZE
+
+# Load data and the two saved models
+df = pd.read_csv(DATA_CLEANED)
+X = df.drop(columns=[TARGET])
+y = df[TARGET]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=TEST_SIZE, random_state=RANDOM_STATE, stratify=y
+)
+
+with open(f"{OUTPUT_DIR}/decision_tree_model.pkl", "rb") as f:
+    dt = pickle.load(f)
+with open(f"{OUTPUT_DIR}/random_forest_model.pkl", "rb") as f:
+    rf = pickle.load(f)
+
+models = {"Decision Tree": dt, "Random Forest": rf}
+
+# Build a side-by-side comparison table
+rows = []
+for name, model in models.items():
+    y_pred = model.predict(X_test)
+    y_prob = model.predict_proba(X_test)[:, 1]
+    # 5-fold cross-validation: train/test 5 different times, average the F1 score
+    cv = cross_val_score(model, X, y, cv=5, scoring="f1")
+    rows.append({
+        "Model": name,
+        "Accuracy": round(accuracy_score(y_test, y_pred), 4),
+        "Precision": round(precision_score(y_test, y_pred), 4),
+        "Recall": round(recall_score(y_test, y_pred), 4),
+        "F1 Score": round(f1_score(y_test, y_pred), 4),
+        "ROC-AUC": round(roc_auc_score(y_test, y_prob), 4),
+        "CV F1 (mean)": round(cv.mean(), 4),
+        "CV F1 (std)": round(cv.std(), 4),
+    })
+
+comparison = pd.DataFrame(rows)
+print(comparison.to_string(index=False))
+comparison.to_csv(f"{OUTPUT_DIR}/model_comparison.csv", index=False)
+
+# ROC Curve - shows how well each model separates churners from non-churners
+plt.figure(figsize=(8, 6))
+for name, model in models.items():
+    y_prob = model.predict_proba(X_test)[:, 1]
+    fpr, tpr, _ = roc_curve(y_test, y_prob)
+    auc = roc_auc_score(y_test, y_prob)
+    plt.plot(fpr, tpr, label=f"{name} (AUC={auc:.3f})")
+plt.plot([0, 1], [0, 1], "k--", label="Random guessing")
+plt.xlabel("False Positive Rate")
+plt.ylabel("True Positive Rate")
+plt.title("ROC Curve Comparison")
+plt.legend()
+plt.tight_layout()
+plt.savefig(f"{OUTPUT_DIR}/roc_curve_comparison.png", dpi=150)
+
+# Confusion Matrices side by side
+fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+for ax, (name, model) in zip(axes, models.items()):
+    y_pred = model.predict(X_test)
+    cm = confusion_matrix(y_test, y_pred)
+    ConfusionMatrixDisplay(cm,
+        display_labels=["Not Churned", "Churned"]).plot(ax=ax)
+    ax.set_title(name)
+plt.tight_layout()
+plt.savefig(f"{OUTPUT_DIR}/confusion_matrices.png", dpi=150)
+
+print("\nModel evaluation complete. See outputs/ for charts and model_comparison.csv")
