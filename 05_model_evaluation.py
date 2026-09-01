@@ -7,22 +7,23 @@ import pickle
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.model_selection import cross_val_score
 from sklearn.metrics import (
     accuracy_score, precision_score, recall_score, f1_score,
     roc_auc_score, roc_curve,
     confusion_matrix, ConfusionMatrixDisplay,
 )
-from config import DATA_CLEANED, OUTPUT_DIR, TARGET, RANDOM_STATE, TEST_SIZE
+from config import DATA_CLEANED, OUTPUT_DIR, TARGET, split_data
 
 # Load data and the two saved models
 df = pd.read_csv(DATA_CLEANED)
 X = df.drop(columns=[TARGET])
 y = df[TARGET]
 
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=TEST_SIZE, random_state=RANDOM_STATE, stratify=y
-)
+# Same three-way split as Steps 3 & 4 (identical RANDOM_STATE -> identical rows).
+# X_test/y_test have NOT been seen by either model until this exact moment -
+# this is the one true, unbiased comparison.
+X_train, X_val, X_test, y_train, y_val, y_test = split_data(X, y)
 
 with open(f"{OUTPUT_DIR}/decision_tree_model.pkl", "rb") as f:
     dt = pickle.load(f)
@@ -31,12 +32,26 @@ with open(f"{OUTPUT_DIR}/random_forest_model.pkl", "rb") as f:
 
 models = {"Decision Tree": dt, "Random Forest": rf}
 
-# Build a side-by-side comparison table
+# ---- Train vs Validation vs Test accuracy, for every model ----
+# Seeing all three side by side makes overfitting/underfitting obvious:
+#   Train >> Validation/Test  -> overfitting (memorized training data)
+#   All three low             -> underfitting (model too simple / bad features)
+#   All three close and high  -> good generalization
+print("===== TRAIN / VALIDATION / TEST ACCURACY (overfitting check) =====")
+for name, model in models.items():
+    train_acc = model.score(X_train, y_train)
+    val_acc = model.score(X_val, y_val)
+    test_acc = model.score(X_test, y_test)
+    print(f"{name:15s} Train={train_acc:.4f}  Val={val_acc:.4f}  Test={test_acc:.4f}")
+print()
+
+# ---- Final comparison table, scored on the untouched TEST set ----
 rows = []
 for name, model in models.items():
     y_pred = model.predict(X_test)
     y_prob = model.predict_proba(X_test)[:, 1]
-    # 5-fold cross-validation: train/test 5 different times, average the F1 score
+    # 5-fold cross-validation on the full dataset: an extra, independent
+    # robustness check (trains/tests 5 different times, averages the F1 score)
     cv = cross_val_score(model, X, y, cv=5, scoring="f1")
     rows.append({
         "Model": name,
@@ -50,6 +65,7 @@ for name, model in models.items():
     })
 
 comparison = pd.DataFrame(rows)
+print("===== FINAL COMPARISON (on Test set) =====")
 print(comparison.to_string(index=False))
 comparison.to_csv(f"{OUTPUT_DIR}/model_comparison.csv", index=False)
 
