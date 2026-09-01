@@ -1,0 +1,6 @@
+customer_segment,customer_count,pct_of_customers,avg_recency_days,avg_frequency,avg_monetary,total_revenue,pct_of_revenue
+Champions,539,10.78,4.7,107.0,47031.31,25349876.63,34.62
+Others,1694,33.87,8.7,87.5,10240.93,17348139.84,23.69
+"At Risk",1081,21.62,43.7,99.7,11694.27,12641505.49,17.27
+Lost,920,18.40,47.6,84.8,10047.59,9243779.6,12.63
+Loyal,767,15.34,11.3,101.6,11253.75,8631629.74,11.79
