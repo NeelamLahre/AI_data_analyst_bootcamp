@@ -1,0 +1,4 @@
+dosage_level,patients,efficacy_pct
+"Low (<100mg)",394522,22.21
+"High (>500mg)",156400,22.35
+"Medium (100-500mg)",463231,22.25

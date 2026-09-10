@@ -1,0 +1,6 @@
+age_group,total_patients,effective_count,efficacy_pct
+Pediatric,25219,10627,42.14
+"Young Adult",183466,58106,31.67
+"Middle Aged",460805,106438,23.1
+Senior,275399,42825,15.55
+Elderly,69264,7645,11.04
