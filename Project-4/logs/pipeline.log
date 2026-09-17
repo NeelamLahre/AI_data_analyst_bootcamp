@@ -1,0 +1,14 @@
+2026-09-17 14:13:24,803 | INFO | START 01_profile.py
+2026-09-17 14:13:33,092 | INFO | DONE 01_profile.py
+2026-09-17 14:13:33,092 | INFO | START 02_clean.py
+2026-09-17 14:13:45,810 | INFO | DONE 02_clean.py
+2026-09-17 14:13:45,811 | INFO | START 03_load.py
+2026-09-17 14:17:48,555 | INFO | DONE 03_load.py
+2026-09-17 14:17:48,560 | INFO | START 03b_load_claims.py
+2026-09-17 14:18:16,709 | INFO | DONE 03b_load_claims.py
+2026-09-17 14:18:16,710 | INFO | START 03c_backfill_rider_fields.py
+2026-09-17 14:20:51,194 | INFO | DONE 03c_backfill_rider_fields.py
+2026-09-17 14:20:51,194 | INFO | START 03d_backfill_sentiment.py
+2026-09-17 14:20:59,797 | INFO | DONE 03d_backfill_sentiment.py
+2026-09-17 14:20:59,797 | INFO | START 03e_backfill_agent_fields.py
+2026-09-17 14:21:03,289 | INFO | DONE 03e_backfill_agent_fields.py

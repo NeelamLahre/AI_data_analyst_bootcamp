@@ -1,0 +1,66 @@
+,non_blank,blank_like,distinct,example,blank_pct
+claim_decline_reason,3515,46485,9,,92.97
+lapse_date,4724,45276,1010,,90.55
+rider_premium_before_sgd,8090,41910,7562,603.46,83.82
+rider_premium_after_sgd,8090,41910,7557,603.46,83.82
+deductible_sgd,8090,41910,6,0,83.82
+copay_pct,8381,41619,8,0,83.24
+ip_plan_tier,10769,39231,4,Public A-Ward,78.46
+agent_name,26136,23864,896,Suresh Sim,47.73
+agent_id,26157,23843,1380,AGT-01194,47.69
+agency_unit,26180,23820,62,AU-20,47.64
+agent_tier,26224,23776,5,New,47.55
+agent_status,26224,23776,4,Active,47.55
+agent_productivity_score,26224,23776,621,30.6,47.55
+agent_tenure_months,26224,23776,194,7,47.55
+agent_attrition_risk,26224,23776,511,0.22,47.55
+assessor_approval_limit_sgd,29804,20196,6,,40.39
+claim_id,29898,20102,28367,,40.2
+claim_amount_sgd,29898,20102,27867,,40.2
+claim_status,29898,20102,6,,40.2
+claim_tat_days,29898,20102,103,,40.2
+claim_date,29898,20102,1447,,40.2
+approval_above_limit_flag,29898,20102,3,,40.2
+fraud_risk_score,29898,20102,855,,40.2
+sod_breach_flag,29898,20102,12,,40.2
+claim_type,29898,20102,9,,40.2
+assessor_id,29962,20038,208,,40.08
+customer_id,49678,322,28143,CUS-014960,0.64
+residency_status,49701,299,16,Permanent Resident,0.6
+occupation_group,49698,302,22,Manager,0.6
+income_band,49707,293,17,100k-200k,0.59
+mobile_number,49708,292,47782,+65 97431224,0.58
+customer_name,49714,286,3977,  Denise Low  ,0.57
+age,49722,278,76,52,0.56
+postal_district,49718,282,40,D10,0.56
+date_of_birth,49724,276,14929,07-08-1974,0.55
+email,49726,274,46797,denise.low336@example.com,0.55
+gender,49729,271,23,FEMALE,0.54
+annual_income_sgd,49728,272,38427,120242,0.54
+annual_premium_sgd,49728,272,47822,"1,805.01 SGD",0.54
+policy_status,49728,272,17,Inforce,0.54
+distribution_channel,49729,271,34,Agency,0.54
+months_inforce,49728,272,56,6,0.54
+nbp_margin_pct,49734,266,3795,20.39%,0.53
+sum_assured_sgd,49741,259,3270,752000,0.52
+product_category,49743,257,20,Health & IP,0.51
+policy_id,49755,245,47267,POL-0007871,0.49
+product_name,49954,46,18,PRUShield Standard,0.09
+record_id,50000,0,48500,RID-0007871,0.0
+marital_status,50000,0,4,Married,0.0
+persistency_13m_flag,50000,0,12,1,0.0
+lapse_flag,50000,0,12,N,0.0
+ape_sgd,50000,0,47074,1805.01,0.0
+policy_term_years,50000,0,7,10,0.0
+quote_date,50000,0,1611,01-02-2026,0.0
+policy_start_date,50000,0,1681,18-02-2026,0.0
+payment_frequency,50000,0,4,Monthly,0.0
+source_system,50000,0,4,AGENCY_MGMT,0.0
+last_updated_ts,50000,0,43401,24-06-2026 16:00,0.0
+rider_attached_flag,50000,0,12,Y,0.0
+care_delay_days,50000,0,619,171,0.0
+chronic_condition_flag,50000,0,12,N,0.0
+disputed_flag,50000,0,9,N,0.0
+customer_sentiment_score,50000,0,197,0.64,0.0
+nps_score,50000,0,11,5,0.0
+complaint_flag,50000,0,12,0,0.0

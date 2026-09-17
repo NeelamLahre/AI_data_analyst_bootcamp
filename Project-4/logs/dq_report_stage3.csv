@@ -1,0 +1,9 @@
+check,records_affected,run_ts
+null_standardised,715507,2026-09-17 14:13:36.200948
+age_implausible_discarded,236,2026-09-17 14:13:36.200948
+age_derived_from_dob,482,2026-09-17 14:13:36.200948
+occupation_group_imputed,302,2026-09-17 14:13:36.200948
+postal_district_imputed,282,2026-09-17 14:13:36.200948
+marital_status_imputed,0,2026-09-17 14:13:36.200948
+residency_status_imputed,299,2026-09-17 14:13:36.200948
+rows_quarantined_missing,899,2026-09-17 14:13:36.200948
