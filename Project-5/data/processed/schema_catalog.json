@@ -1,0 +1,484 @@
+{
+  "circle_monthly_kpi": [
+    {
+      "name": "month_end",
+      "type": "DATETIME2"
+    },
+    {
+      "name": "circle",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "circle_code",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "zone",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "closing_base",
+      "type": "INTEGER"
+    },
+    {
+      "name": "gross_adds",
+      "type": "INTEGER"
+    },
+    {
+      "name": "churned_subscribers",
+      "type": "INTEGER"
+    },
+    {
+      "name": "net_adds",
+      "type": "INTEGER"
+    },
+    {
+      "name": "monthly_churn_pct",
+      "type": "FLOAT"
+    },
+    {
+      "name": "arpu_inr",
+      "type": "FLOAT"
+    },
+    {
+      "name": "data_traffic_pb",
+      "type": "FLOAT"
+    },
+    {
+      "name": "port_in_requests",
+      "type": "INTEGER"
+    },
+    {
+      "name": "port_out_requests",
+      "type": "INTEGER"
+    },
+    {
+      "name": "complaints_logged",
+      "type": "INTEGER"
+    }
+  ],
+  "circle_targets": [
+    {
+      "name": "circle",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "circle_code",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "zone",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "base_aug_2026",
+      "type": "INTEGER"
+    },
+    {
+      "name": "churn_actual_pct",
+      "type": "FLOAT"
+    },
+    {
+      "name": "arpu_actual_inr",
+      "type": "FLOAT"
+    },
+    {
+      "name": "churn_ceiling_fy27_pct",
+      "type": "FLOAT"
+    },
+    {
+      "name": "arpu_target_fy27_inr",
+      "type": "FLOAT"
+    },
+    {
+      "name": "retention_budget_lakh",
+      "type": "FLOAT"
+    },
+    {
+      "name": "budget_utilised_lakh",
+      "type": "FLOAT"
+    },
+    {
+      "name": "circle_owner",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "review_status",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    }
+  ],
+  "network_sites": [
+    {
+      "name": "site_id",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "circle",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "circle_code",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "zone",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "pin_code",
+      "type": "INTEGER"
+    },
+    {
+      "name": "technology",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "subscribers_served",
+      "type": "INTEGER"
+    },
+    {
+      "name": "prb_utilisation_pct",
+      "type": "FLOAT"
+    },
+    {
+      "name": "avg_sinr_db",
+      "type": "FLOAT"
+    },
+    {
+      "name": "drop_call_rate_pct",
+      "type": "FLOAT"
+    },
+    {
+      "name": "avg_throughput_mbps",
+      "type": "FLOAT"
+    },
+    {
+      "name": "congestion_flag",
+      "type": "BIT"
+    },
+    {
+      "name": "backhaul",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    }
+  ],
+  "offer_catalogue": [
+    {
+      "name": "offer_code",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "offer_name",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "target_segment",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "arpu_band_inr",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "discount_pct",
+      "type": "TINYINT"
+    },
+    {
+      "name": "bonus_data_gb",
+      "type": "TINYINT"
+    },
+    {
+      "name": "validity_days",
+      "type": "SMALLINT"
+    },
+    {
+      "name": "cost_per_sub_inr",
+      "type": "FLOAT"
+    },
+    {
+      "name": "approval_status",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "approved_circles",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "valid_from",
+      "type": "DATETIME2"
+    },
+    {
+      "name": "valid_to",
+      "type": "DATETIME2"
+    },
+    {
+      "name": "owner",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "expected_uplift_pct",
+      "type": "FLOAT"
+    }
+  ],
+  "scored_subscribers": [
+    {
+      "name": "subscriber_id",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "churn_score",
+      "type": "FLOAT"
+    },
+    {
+      "name": "clv_predicted",
+      "type": "FLOAT"
+    },
+    {
+      "name": "uplift_score",
+      "type": "FLOAT"
+    },
+    {
+      "name": "segment",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    }
+  ],
+  "service_requests": [
+    {
+      "name": "sr_id",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "subscriber_id",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "circle",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "circle_code",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "product",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "sr_category",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "sr_subcategory",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "channel",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "raised_date",
+      "type": "DATETIME2"
+    },
+    {
+      "name": "sla_days",
+      "type": "TINYINT"
+    },
+    {
+      "name": "resolution_days",
+      "type": "FLOAT"
+    },
+    {
+      "name": "resolved_date",
+      "type": "DATETIME2"
+    },
+    {
+      "name": "sla_breach_flag",
+      "type": "BIT"
+    },
+    {
+      "name": "reopened_flag",
+      "type": "BIT"
+    },
+    {
+      "name": "status",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "csat_score",
+      "type": "TINYINT"
+    }
+  ],
+  "subscribers": [
+    {
+      "name": "subscriber_id",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "circle",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "circle_code",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "zone",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "join_date",
+      "type": "DATE"
+    },
+    {
+      "name": "tenure_months",
+      "type": "TINYINT"
+    },
+    {
+      "name": "plan_type",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "plan_price_inr",
+      "type": "SMALLINT"
+    },
+    {
+      "name": "plan_validity_days",
+      "type": "SMALLINT"
+    },
+    {
+      "name": "arpu_last_month_inr",
+      "type": "FLOAT"
+    },
+    {
+      "name": "arpu_3m_avg_inr",
+      "type": "FLOAT"
+    },
+    {
+      "name": "arpu_6m_avg_inr",
+      "type": "FLOAT"
+    },
+    {
+      "name": "recharge_count_6m",
+      "type": "TINYINT"
+    },
+    {
+      "name": "avg_recharge_gap_days",
+      "type": "FLOAT"
+    },
+    {
+      "name": "days_since_last_recharge",
+      "type": "TINYINT"
+    },
+    {
+      "name": "payment_failures_6m",
+      "type": "TINYINT"
+    },
+    {
+      "name": "autopay_enabled",
+      "type": "BIT"
+    },
+    {
+      "name": "data_gb_last_month",
+      "type": "FLOAT"
+    },
+    {
+      "name": "data_gb_3m_avg",
+      "type": "FLOAT"
+    },
+    {
+      "name": "voice_minutes_last_month",
+      "type": "SMALLINT"
+    },
+    {
+      "name": "sms_count_last_month",
+      "type": "TINYINT"
+    },
+    {
+      "name": "device_brand",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "is_5g_device",
+      "type": "BIT"
+    },
+    {
+      "name": "is_5g_active",
+      "type": "BIT"
+    },
+    {
+      "name": "avg_sinr_db",
+      "type": "FLOAT"
+    },
+    {
+      "name": "drop_call_rate_pct",
+      "type": "FLOAT"
+    },
+    {
+      "name": "site_congestion_score",
+      "type": "FLOAT"
+    },
+    {
+      "name": "complaints_6m",
+      "type": "TINYINT"
+    },
+    {
+      "name": "unresolved_complaints",
+      "type": "TINYINT"
+    },
+    {
+      "name": "avg_resolution_days",
+      "type": "FLOAT"
+    },
+    {
+      "name": "home_product",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "num_services",
+      "type": "TINYINT"
+    },
+    {
+      "name": "family_plan_flag",
+      "type": "BIT"
+    },
+    {
+      "name": "app_logins_30d",
+      "type": "TINYINT"
+    },
+    {
+      "name": "outgoing_to_competitor_pct",
+      "type": "FLOAT"
+    },
+    {
+      "name": "roaming_user_flag",
+      "type": "BIT"
+    },
+    {
+      "name": "offer_exposed_90d",
+      "type": "BIT"
+    },
+    {
+      "name": "offer_redeemed_90d",
+      "type": "BIT"
+    },
+    {
+      "name": "mnp_enquiry_flag",
+      "type": "BIT"
+    },
+    {
+      "name": "churn_flag_30d",
+      "type": "BIT"
+    },
+    {
+      "name": "churn_flag_90d",
+      "type": "BIT"
+    },
+    {
+      "name": "churn_reason",
+      "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\""
+    },
+    {
+      "name": "churn_date",
+      "type": "DATE"
+    }
+  ]
+}

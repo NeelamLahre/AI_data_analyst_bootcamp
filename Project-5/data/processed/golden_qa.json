@@ -1,0 +1,10 @@
+[
+  {"question": "Top 5 circles by port-out requests last month", "expect_route": "sql"},
+  {"question": "How many subscribers are in the Persuadable segment", "expect_route": "sql"},
+  {"question": "What percentage of subscribers are 5G active", "expect_route": "sql"},
+  {"question": "What retention offers are approved for Bihar", "expect_route": "rag"},
+  {"question": "What retention offers are approved for Uttar Pradesh East", "expect_route": "rag"},
+  {"question": "Why is subscriber JIO10037241 high risk, and what should we offer them", "expect_route": "both"},
+  {"question": "Which circles are currently flagged Escalated", "expect_route": "sql"},
+  {"question": "Average ARPU by circle for the latest month", "expect_route": "sql"}
+]

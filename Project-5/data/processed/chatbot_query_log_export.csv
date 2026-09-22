@@ -1,0 +1,105 @@
+id,ts,user_question,route,generated_sql,execution_status,row_count,latency_ms,error_message
+1,2026-09-22 22:40:05.820942,test question,sql,SELECT 1,success,1,100,
+2,2026-09-22 22:41:48.001383,Top 5 circles by port-out requests last month,sql,"SELECT TOP 5 circle, port_out_requests 
+FROM circle_monthly_kpi 
+WHERE month_end = (SELECT MAX(month_end) FROM circle_monthly_kpi) 
+ORDER BY port_out_requests DESC",success,5,2430,
+3,2026-09-22 22:48:27.446876,"Why is subscriber JIO10037241 high risk, and what should we offer them?",both,,failed,0,2087,"(pyodbc.ProgrammingError) ('42S22', '[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name \'o\'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The multi-part identifier ""s.subscriber_id"" could not be bound. (4104); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The multi-part identifier ""s.circle"" could not be bound. (4104); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The multi-part identifier ""s.circle_code"" could not be bound. (4104); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The multi-part identifier ""s.tenure_months"" could not be bound. (4104); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The multi-part identifier ""s.unresolved_complaints"" could not be bound. (4104); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The multi-part identifier ""s.days_since_last_recharge"" could not be bound. (4104); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The multi-part identifier ""sc.churn_score"" could not be bound. (4104); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The multi-part identifier ""sc.clv_predicted"" could not be bound. (4104); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The multi-part identifier ""sc.segment"" could not be bound. (4104); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The multi-part identifier ""o.offer_code"" could not be bound. (4104)')
+[SQL: SELECT TOP 200 s.subscriber_id,
+       s.circle,
+       s.circle_code,
+       s.tenure_months,
+       s.unresolved_complaints,
+       s.days_since_last_recharge,
+       sc.churn_score,
+       sc.clv_predicted,
+       sc.segment,
+       o.offer_code,
+       o]
+(Background on this error at: https://sqlalche.me/e/20/f405)"
+4,2026-09-22 22:48:56.268784,What retention offers are approved for Bihar?,rag,,success,0,705,
+5,2026-09-22 22:49:32.063913,How many subscribers are in the Persuadable segment?,sql,"SELECT COUNT(*) AS persuadable_subscribers
+FROM scored_subscribers
+WHERE segment = 'Persuadable';",success,1,1394,
+6,2026-09-22 22:50:36.225290,What retention offers are approved for Bihar?,rag,,success,0,712,
+7,2026-09-22 22:51:00.676236,"Why is subscriber JIO10037241 high risk, and what should we offer them?",both,,failed,0,1668,"(pyodbc.ProgrammingError) ('42000', ""[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Incorrect syntax near ','. (102) (SQLExecDirectW)"")
+[SQL: SELECT TOP 1 
+    s.subscriber_id,
+    s.circle,
+    s.circle_code,
+    s.tenure_months,
+    s.unresolved_complaints,
+    s.days_since_last_recharge,
+    s.arpu_last_month_inr,
+    sc.churn_score,
+    sc.clv_predicted,
+    sc.segment,
+    o.offer_code,
+    o.offer_name,
+    o.discount_pct,
+    o.bonus_data_gb,]
+(Background on this error at: https://sqlalche.me/e/20/f405)"
+8,2026-09-22 22:57:42.362128,"Why is subscriber JIO10037241 high risk, and what should we offer them?",both,"SELECT s.subscriber_id,
+       s.circle,
+       s.tenure_months,
+       s.unresolved_complaints,
+       s.days_since_last_recharge,
+       sc.churn_score,
+       sc.clv_predicted,
+       sc.segment,
+       oa.offer_code,
+       oa.offer_name,
+       oa.discount_pct,
+       oa.bonus_data_gb,
+       oa.expected_uplift_pct
+FROM subscribers s
+JOIN scored_subscribers sc ON s.subscriber_id = sc.subscriber_id
+OUTER APPLY (
+    SELECT TOP 1 offer_code,
+                offer_name,
+                discount_pct,
+                bonus_data_gb,
+                expected_uplift_pct
+    FROM offer_catalogue oc
+    WHERE oc.approval_status = 'Active'
+      AND (oc.approved_circles LIKE '%' + s.circle + '%'
+           OR oc.approved_circles LIKE '%' + s.circle_code + '%')
+    ORDER BY oc.expected_uplift_pct DESC
+) oa
+WHERE s.subscriber_id = 'JIO10037241';",success,1,5575,
+9,2026-09-22 23:02:37.399211,Top 5 circles by port-out requests last month,sql,"SELECT TOP 5 circle, port_out_requests
+FROM circle_monthly_kpi
+WHERE month_end = (SELECT MAX(month_end) FROM circle_monthly_kpi)
+ORDER BY port_out_requests DESC",success,5,2144,
+10,2026-09-22 23:02:56.763652,How many subscribers are in the Persuadable segment,sql,"SELECT COUNT(*) AS persuadable_subscriber_count
+FROM scored_subscribers
+WHERE segment = 'Persuadable';",success,1,19348,
+11,2026-09-22 23:03:30.061183,What percentage of subscribers are 5G active,sql,SELECT AVG(CAST(is_5g_active AS FLOAT)) * 100 AS pct_5g_active FROM subscribers,success,1,33287,
+12,2026-09-22 23:03:36.061425,What retention offers are approved for Bihar,rag,,success,0,5986,
+13,2026-09-22 23:03:43.851272,What retention offers are approved for Uttar Pradesh East,rag,,success,0,7725,
+14,2026-09-22 23:04:31.164237,"Why is subscriber JIO10037241 high risk, and what should we offer them",both,"SELECT TOP 200 s.subscriber_id,
+       s.circle,
+       s.tenure_months,
+       s.unresolved_complaints,
+       s.days_since_last_recharge,
+       sc.churn_score,
+       sc.clv_predicted,
+       sc.segment,
+       oc.offer_code,
+       oc.offer_name,
+       oc.discount_pct,
+       oc.bonus_data_gb,
+       oc.expected_uplift_pct
+FROM   subscribers s
+JOIN   scored_subscribers sc
+       ON s.subscriber_id = sc.subscriber_id
+LEFT JOIN offer_catalogue oc
+       ON oc.approval_status = 'Active'
+          AND oc.target_segment = sc.segment
+          AND oc.approved_circles LIKE '%' + s.circle + '%'
+WHERE  s.subscriber_id = 'JIO10037241';",success,1,47298,
+15,2026-09-22 23:05:09.326173,Which circles are currently flagged Escalated,sql,,failed,0,38150,"Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m35a1aqteravrcvy0wbzfnry` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 2911, Requested 5169. Please try again in 600ms. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+16,2026-09-22 23:05:16.692901,Average ARPU by circle for the latest month,sql,"SELECT TOP 200 circle, arpu_inr 
+FROM circle_monthly_kpi 
+WHERE month_end = (SELECT MAX(month_end) FROM circle_monthly_kpi) 
+ORDER BY arpu_inr DESC",success,22,7358,

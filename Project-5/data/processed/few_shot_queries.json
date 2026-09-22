@@ -1,0 +1,54 @@
+[
+  {
+    "question": "Top 5 circles by port-out requests last month",
+    "sql": "SELECT TOP 5 circle, port_out_requests FROM circle_monthly_kpi WHERE month_end = (SELECT MAX(month_end) FROM circle_monthly_kpi) ORDER BY port_out_requests DESC"
+  },
+  {
+    "question": "How many subscribers are in the top risk decile this week",
+    "sql": "SELECT COUNT(*) FROM scored_subscribers WHERE churn_score >= (SELECT DISTINCT churn_score FROM (SELECT TOP 10 PERCENT churn_score FROM scored_subscribers ORDER BY churn_score DESC) t ORDER BY churn_score ASC)"
+  },
+  {
+    "question": "Why is subscriber JIO10037241 high risk, and what should we offer",
+    "sql": "SELECT s.subscriber_id, s.circle, s.tenure_months, s.unresolved_complaints, s.days_since_last_recharge, sc.churn_score, sc.clv_predicted, sc.segment FROM subscribers s JOIN scored_subscribers sc ON s.subscriber_id = sc.subscriber_id WHERE s.subscriber_id = 'JIO10037241'"
+  },
+  {
+    "question": "Which circles are currently flagged Escalated",
+    "sql": "SELECT circle, churn_actual_pct, review_status, circle_owner FROM circle_targets WHERE review_status = 'Escalated' ORDER BY churn_actual_pct DESC"
+  },
+  {
+    "question": "Average ARPU by circle for the latest month",
+    "sql": "SELECT circle, arpu_inr FROM circle_monthly_kpi WHERE month_end = (SELECT MAX(month_end) FROM circle_monthly_kpi) ORDER BY arpu_inr DESC"
+  },
+  {
+    "question": "What retention offers are approved for Bihar this quarter",
+    "sql": "SELECT offer_code, offer_name, discount_pct, bonus_data_gb, expected_uplift_pct FROM offer_catalogue WHERE approval_status = 'Active' AND approved_circles LIKE '%BH%'"
+  },
+  {
+    "question": "How many subscribers are in each uplift segment",
+    "sql": "SELECT segment, COUNT(*) AS subscriber_count FROM scored_subscribers GROUP BY segment ORDER BY subscriber_count DESC"
+  },
+  {
+    "question": "Subscribers with 2 or more unresolved complaints",
+    "sql": "SELECT TOP 200 subscriber_id, circle, unresolved_complaints FROM subscribers WHERE unresolved_complaints >= 2 ORDER BY unresolved_complaints DESC"
+  },
+  {
+    "question": "SLA breach rate by service request category",
+    "sql": "SELECT sr_category, AVG(CAST(sla_breach_flag AS FLOAT)) AS breach_rate, COUNT(*) AS total_requests FROM service_requests GROUP BY sr_category ORDER BY breach_rate DESC"
+  },
+  {
+    "question": "What percentage of subscribers are 5G active",
+    "sql": "SELECT AVG(CAST(is_5g_active AS FLOAT)) * 100 AS pct_5g_active FROM subscribers"
+  },
+  {
+    "question": "Top 5 offers by expected uplift",
+    "sql": "SELECT TOP 5 offer_code, offer_name, expected_uplift_pct FROM offer_catalogue WHERE approval_status = 'Active' ORDER BY expected_uplift_pct DESC"
+  },
+  {
+    "question": "Which network sites have the highest congestion",
+    "sql": "SELECT TOP 10 site_id, circle, pin_code, prb_utilisation_pct FROM network_sites WHERE congestion_flag = 1 ORDER BY prb_utilisation_pct DESC"
+  },
+  {
+    "question": "Churn rate for subscribers with tenure under 3 months",
+    "sql": "SELECT AVG(CAST(churn_flag_90d AS FLOAT)) AS churn_rate, COUNT(*) AS subscriber_count FROM subscribers WHERE tenure_months < 3"
+  }
+]
